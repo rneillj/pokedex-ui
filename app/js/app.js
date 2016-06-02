@@ -1,13 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-class Layout extends React.Component {
-  render() {
-    return (
-      <h1>Pokedex</h1>
-    );
-  }
-}
+import Layout from "./Layout";
 
 const app = document.getElementById('app');
 
