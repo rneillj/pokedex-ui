@@ -1,0 +1,23 @@
+{
+  "name": "pokedex-ui",
+  "version": "1.0.0",
+  "description": "UI for the Pokedex app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/censhin/pokedex-ui.git"
+  },
+  "author": "censhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/censhin/pokedex-ui/issues"
+  },
+  "homepage": "https://github.com/censhin/pokedex-ui#readme",
+  "dependencies": {
+    "react": "^15.1.0",
+    "webpack": "^1.13.1"
+  }
+}
