@@ -4,9 +4,12 @@ var webpack = require('webpack');
 module.exports = {
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/app.js",
+  entry: "./js/index.js",
   resolve: {
     extensions: ['', '.js', '.jsx']
+  },
+  devServer: {
+     headers: { "Access-Control-Allow-Origin": "*" }
   },
   module: {
     loaders: [
