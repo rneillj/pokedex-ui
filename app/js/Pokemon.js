@@ -1,5 +1,4 @@
 import React from "react";
-import PokemonEntry from "./PokemonEntry";
 
 class Pokemon extends React.Component {
   constructor(props) {
@@ -15,8 +14,7 @@ class Pokemon extends React.Component {
     };
     const options = {
       method: 'GET',
-      headers: headers,
-      mode: 'cors'
+      headers: headers
     };
     fetch(url, options)
       .then((response) => {
@@ -34,7 +32,7 @@ class Pokemon extends React.Component {
   render() {
     return(
       <div>
-        <PokemonEntry pokemon={this.state.pokemon} />
+        name: {this.state.pokemon.name}
       </div>
     );
   }
