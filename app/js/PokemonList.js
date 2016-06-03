@@ -1,4 +1,5 @@
 import React from "react";
+import Pokemon from "./Pokemon";
 
 class PokemonList extends React.Component {
   constructor(props) {
@@ -32,19 +33,7 @@ class PokemonList extends React.Component {
   render() {
     return(
       <div>
-        <ul>
-          {
-            this.state.pokemon.map(function(p){
-              let imgSrc = `./img/${p.number}.png`;
-              return (
-              <li>
-                <img src={imgSrc} />
-                {p.name}
-              </li>
-              );
-            })
-          }
-        </ul>
+        <Pokemon pokemon={this.state.pokemon} />
       </div>
     );
   }
