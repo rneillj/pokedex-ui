@@ -1,13 +1,13 @@
 import React from "react";
 
-class Pokemon extends React.Component {
+class PokemonList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pokemon: [] };
+    this.state = { pokemon: [] } ;
   }
 
   getPokemon() {
-    const url = 'http://localhost:8000/pokemon/bulbasaur';
+    const url = 'http://localhost:8000/pokemon';
     const headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ class Pokemon extends React.Component {
         return response.json()
       })
       .then((json) => {
-        this.setState({pokemon: json})
+        this.setState({ pokemon: json.pokemon })
       });
   }
 
@@ -32,10 +32,22 @@ class Pokemon extends React.Component {
   render() {
     return(
       <div>
-        name: {this.state.pokemon.name}
+        <ul>
+          {
+            this.state.pokemon.map(function(p){
+              let imgSrc = `./img/${p.number}.png`;
+              return (
+              <li>
+                <img src={imgSrc} />
+                {p.name}
+              </li>
+              );
+            })
+          }
+        </ul>
       </div>
     );
   }
 }
 
-export default Pokemon;
+export default PokemonList;
