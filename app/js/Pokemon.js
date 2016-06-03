@@ -4,13 +4,14 @@ class Pokemon extends React.Component {
   render() {
     const pokemon = this.props.pokemon;
 
-    //CSS, more like CS-not-impressed
-    const liStyle = {
-      "display": "inline-block"
-    };
-    const spanStyle = {
-      "display": "block",
-      "textAlign": "center"
+    const css = {
+      liStyle: {
+        "display": "inline-block"
+      },
+      spanStyle: {
+        "display": "block",
+        "textAlign": "center"
+      }
     };
 
     return(
@@ -20,9 +21,9 @@ class Pokemon extends React.Component {
             pokemon.map(function(p){
               let imgSrc = `./img/${p.number}.png`;
               return (
-                <li key={p.number} style={liStyle}>
+                <li key={p.number} style={css.liStyle}>
                   <img src={imgSrc} />
-                  <span style={spanStyle}>{p.name}</span>
+                  <span style={css.spanStyle}>{p.name}</span>
                 </li>
               );
             })
