@@ -1,5 +1,6 @@
 import React from "react";
-import Pokemon from "./Pokemon";
+import { Link } from "react-router";
+import getPokemon from "./api/pokemon"
 
 class PokemonList extends React.Component {
   constructor(props) {
@@ -7,33 +8,42 @@ class PokemonList extends React.Component {
     this.state = { pokemon: [] } ;
   }
 
-  getPokemon() {
-    const url = 'http://localhost:8000/pokemon';
-    const headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    };
-    const options = {
-      method: 'GET',
-      headers: headers
-    };
-    fetch(url, options)
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ pokemon: json.pokemon })
-      });
-  }
-
   componentWillMount() {
-    this.getPokemon();
+    getPokemon(this);
   }
 
   render() {
+    const pokemon = this.state.pokemon;
+
+    const css = {
+      liStyle: {
+        "display": "inline-block"
+      },
+      spanStyle: {
+        "display": "block",
+        "textAlign": "center"
+      }
+    };
+
     return(
       <div>
-        <Pokemon pokemon={this.state.pokemon} />
+        <ul>
+          {
+            pokemon.map(function(p){
+              let imgSrc = `./img/${p.number}.png`;
+              let pokeSrc = `/pokemon/${p.name}`;
+
+              return (
+                <li key={p.number} style={css.liStyle}>
+                  <Link to={pokeSrc}>
+                    <img src={imgSrc} />
+                    <span style={css.spanStyle}>{p.name}</span>
+                  </Link>
+                </li>
+              );
+            })
+          }
+        </ul>
       </div>
     );
   }
