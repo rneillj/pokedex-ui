@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import Layout from "./Layout";
 import Pokedex from "./Pokedex";
@@ -10,7 +10,7 @@ import Pokemon from "./Pokemon";
 const app = document.getElementById('app');
 
 ReactDOM.render(
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Pokedex} />
       <Route path="pokemon" component={PokemonList} />
