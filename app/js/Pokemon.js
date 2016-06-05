@@ -1,32 +1,16 @@
 import React from "react";
+import { getPokemonByName } from "./api";
 
 class Pokemon extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: {} };
   }
-
-  getPokemonByName(name) {
-    const url = `http://localhost:8000/pokemon/${name}`;
-    const headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    };
-    const options = {
-      method: 'GET',
-      headers: headers
-    };
-    fetch(url, options)
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        this.setState({ data: json })
-      });
-  }
   
   componentDidMount() {
-    this.getPokemonByName(this.props.params.id);
+    getPokemonByName(this.props.params.id).then((pokemon) => {
+      this.setState({ data: pokemon });
+    });
   }
 
   render() {
