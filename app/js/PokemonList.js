@@ -29,7 +29,7 @@ class PokemonList extends React.Component {
 
     return(
       <div>
-        <ul>
+        <ol>
           {
             pokemon.map(function(p){
               let imgSrc = `./img/${p.number}.png`;
@@ -45,7 +45,7 @@ class PokemonList extends React.Component {
               );
             })
           }
-        </ul>
+        </ol>
       </div>
     );
   }
