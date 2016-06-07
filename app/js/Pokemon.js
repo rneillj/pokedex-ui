@@ -7,7 +7,7 @@ class Pokemon extends React.Component {
     this.state = { data: {} };
   }
   
-  componentDidMount() {
+  componentWillMount() {
     getPokemonByName(this.props.params.id).then((pokemon) => {
       this.setState({ data: pokemon });
     });

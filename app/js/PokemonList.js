@@ -8,7 +8,7 @@ class PokemonList extends React.Component {
     this.state = { pokemon: [] };
   }
   
-  componentDidMount() {
+  componentWillMount() {
     getPokemon().then((pokemon) => {
       this.setState({ pokemon: pokemon });
     });

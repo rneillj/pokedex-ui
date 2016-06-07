@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import Layout from "./Layout";
-import Pokedex from "./Pokedex";
 import PokemonList from "./PokemonList";
 import Pokemon from "./Pokemon";
 
