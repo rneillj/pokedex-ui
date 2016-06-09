@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import Infinite from "react-infinite";
 import { getPokemon } from "./api";
 
 class PokemonList extends React.Component {
@@ -29,23 +30,24 @@ class PokemonList extends React.Component {
 
     return(
       <div>
-        <ol>
-          {
-            pokemon.map(function(p){
-              let imgSrc = `./img/${p.number}.png`;
-              let pokeSrc = `/pokemon/${p.name}`;
-
-              return (
-                <li key={p.number} style={css.liStyle}>
-                  <Link to={pokeSrc}>
-                    <img src={imgSrc} />
-                    <span style={css.spanStyle}>{p.name}</span>
-                  </Link>
-                </li>
-              );
-            })
-          }
-        </ol>
+        <ul>
+          <Infinite containerHeight={500} elementHeight={90} useWindowAsScrollContainer>
+            {
+              pokemon.map(function(p){
+                let imgSrc = `./img/${p.number}.png`;
+                let pokeSrc = `/pokemon/${p.name}`;
+                return (
+                  <li key={p.number} style={css.liStyle}>
+                    <Link to={pokeSrc}>
+                      <img src={imgSrc} />
+                      <span style={css.spanStyle}>{p.name}</span>
+                    </Link>
+                  </li>
+                );
+              })
+            }
+          </Infinite>
+        </ul>
       </div>
     );
   }
